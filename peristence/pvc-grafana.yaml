@@ -15,4 +15,4 @@ spec:
       storage: 10Gi
   selector:
     matchLabels:
-      name: loki-loki
+      name: loki-grafana

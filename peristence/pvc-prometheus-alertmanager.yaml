@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: loki-prometheus-data
+  name: loki-prometheus-alertmanager-data
   namespace: monitoring
   labels:
-    name: loki-prometheus
+    name: loki-prometheus-alertmanager
     release: loki
 spec:
   storageClassName: local-storage
@@ -12,7 +12,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 50Gi
+      storage: 5Gi
   selector:
     matchLabels:
-      name: loki-prometheus
+      name: loki-prometheus-alertmanager
