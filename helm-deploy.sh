@@ -1,4 +1,4 @@
-helm upgrade --install loki loki/loki-stack \
+helm upgrade --install -f ./values.yaml loki loki/loki-stack \
     --namespace=monitoring \
     --timeout 600s \
     --set grafana.enabled=true \
@@ -11,4 +11,6 @@ helm upgrade --install loki loki/loki-stack \
     --set loki.config.table_manager.retention_period=672h \
     --set grafana.persistence.enabled=true \
     --set grafana.persistence.type=pvc \
-    --set grafana.persistence.existingClaim=loki-grafana-server
+    --set grafana.persistence.existingClaim=loki-grafana-server \
+    --set grafana.grafana.ini.smtp.enabled=true \
+    --set grafana.smtp.host=mail-serveri.connection-telecom.com:25

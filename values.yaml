@@ -1,0 +1,5 @@
+grafana:
+  grafana.ini:
+    smtp:
+      enabled: true
+      host: mail-server.connection-telecom.com:25
