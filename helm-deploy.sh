@@ -1,0 +1,15 @@
+helm upgrade --install loki loki/loki-stack \
+    --namespace=monitoring \
+    --timeout 600s \
+    --set grafana.enabled=true \
+    --set prometheus.enabled=true \
+    --set prometheus.server.persistentVolume.size=50Gi \
+    --set prometheus.server.server.persistentVolume.existingClaim=loki-prometheus-server \
+    --set loki.persistence.enabled=true \
+    --set loki.persistence.size=100Gi \
+    --set loki.persistence.existingClaim=loki-loki-server \
+    --set loki.config.table_manager.retention_deletes_enabled=true \
+    --set loki.config.table_manager.retention_period=720h \
+    --set grafana.persistence.enabled=true \
+    --set grafana.persistence.type=pvc \
+    --set grafana.persistence.existingClaim=loki-grafana-server
