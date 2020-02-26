@@ -3,3 +3,7 @@ grafana:
     smtp:
       enabled: true
       host: mail-server.connection-telecom.com:25
+      from_address: grafana@connection-telecom.com
+      from_name: Grafana
+    server:
+      root_url: http://10.151.174.197
